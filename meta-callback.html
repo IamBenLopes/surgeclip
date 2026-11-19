@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Signalcut sign-in</title>
+<style>
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:#0f1115;color:#e8eaf0}
+main{max-width:720px;margin:0 auto;padding:40px 16px} a{color:#5b8cff} .muted{color:#9aa3b2}
+</style>
+</head>
+<body>
+<main>
+<h1>Signalcut sign-in</h1>
+<p id="msg">Sending you back to Signalcut on this computer&hellip;</p>
+<p class="muted">This page only passes the sign-in answer to the Signalcut app running on your own computer (127.0.0.1). It stores nothing and sends nothing anywhere else.</p>
+<p><a id="go" href="#" hidden>Continue to Signalcut</a></p>
+</main>
+<script>
+(function () {
+  var q = location.search || '';
+  var state = new URLSearchParams(q).get('state') || '';
+  var port = state.split('~')[0];
+  var path = document.documentElement.getAttribute('data-path') || '/meta';
+  if (!/^[0-9]{4,5}$/.test(port) || +port < 1024 || +port > 65535) {
+    document.getElementById('msg').textContent = 'This sign-in link is not from Signalcut, or it has expired. Start the sign-in again in Signalcut.';
+    return;
+  }
+  var target = 'http://127.0.0.1:' + port + path + q;
+  var a = document.getElementById('go'); a.href = target; a.hidden = false;
+  location.replace(target);
+})();
+</script>
+</body>
+</html>
