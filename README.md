@@ -1,2 +1,2 @@
-# signalcut
-Home page and privacy policy for the Signalcut desktp app
+# surgeclip
+Website for Surgeclip, served at https://surgeclip.app by Cloudflare Pages.
