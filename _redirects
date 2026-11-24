@@ -1,0 +1,9 @@
+# The full Surgeclip site was taken down on 2026-11-24 (git tag full-site-2026-11-24 has it). Old links go home.
+/account/* / 302
+/clip/* / 302
+/download/* / 302
+/features/* / 302
+/integrations/* / 302
+/made-for/* / 302
+/pricing/* / 302
+/resources/* / 302
